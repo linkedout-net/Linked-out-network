@@ -21,12 +21,12 @@
     "@aws-sdk/client-s3": "^3.699.0",
     "@aws-sdk/s3-request-presigner": "^3.699.0",
     "@simplewebauthn/browser": "11.0.0",
-    "@simplewebauthn/server": "11.0.0",
+    "@simplewebauthn/server": "^14.0.3",
     "bcryptjs": "^3.0.3",
     "livekit-client": "*",
     "livekit-server-sdk": "*",
     "lucide-react": "^1.28.0",
-    "next": "16.3.0",
+    "next": "^16.4.2",
     "pdf-parse": "1.1.1",
     "pg": "^8.13.1",
     "react": "19.2.8",
@@ -37,7 +37,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
-    "eslint-config-next": "16.3.0",
+    "eslint-config-next": "^14.2.35",
     "tailwindcss": "^4"
   }
 }
