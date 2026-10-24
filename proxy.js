@@ -79,4 +79,7 @@ export async function proxy(request) {
   return NextResponse.next();
 }
 
-export const config = { matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|css|js|map|woff2?|ttf|mp3|mp4|webm)$).*)"] };
+// Multipart uploads (voice notes, files, photos, video) skip the proxy entirely: Next buffers request bodies that pass
+// through the proxy and cuts them off at 10 MB, which would break large uploads. Those routes are authenticated and
+// rate-limited on their own, and the proxy never inspected request bodies anyway.
+export const config = { matcher: [{ source: "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|css|js|map|woff2?|ttf|mp3|mp4|webm)$).*)", missing: [{ type: "header", key: "content-type", value: "multipart/form-data.*" }] }] };
